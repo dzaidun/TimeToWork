@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model TimeToWork.Models.Appointment
+
+@{
+    ViewData["Title"] = "Done";
+}
+
+<h1>Запис виконано</h1>
+<h4>Ви впевнені що цей запис виконано?</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Дата
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            Послуга
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Service.ServiceName)
+        </dd>
+        <dt class = "col-sm-2">
+            Виконавець
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServiceProvider.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+            Клієнт
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            Ціна
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Price)₴
+        </dd>
+        <dt class="col-sm-2">
+            Кінець зустрічі
+        </dt>
+        <dd class="col-sm-10">
+            @ViewData["EndOfMeating"]
+        </dd>
+    </dl>
+
+    <form asp-action="Done">
+        <input type="hidden" asp-for="AppointmentId"/>
+        <input type="submit" value="Виконано" class="btn btn-success" /> |
+        <a asp-action="Index">Назад до списку</a>
+    </form>
+</div>

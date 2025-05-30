@@ -1,0 +1,44 @@
+﻿@model TimeToWork.Models.Done
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Видалити</h1>
+
+<h3>Ви впевнені що хочете видалити дані про завершену зустріч?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Дата
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            Послуга
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.ServiceName)
+        </dd>
+        <dt class="col-sm-2">
+            Виконавець
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ServiceProvider.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            Клієнт
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DoneId" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад до списку</a>
+    </form>
+</div>

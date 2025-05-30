@@ -1,0 +1,84 @@
+﻿@model TimeToWork.Models.ServiceProvider
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробиці про виконавця</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HireDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            Місце роботи
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlaceOfWork.Location)
+        </dd>
+
+        <dt class="col-sm-2">
+            Послуги
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var item in Model.ServiceAssignments)
+            {
+                <span>※</span>
+                @Html.DisplayFor(w => item.Service.ServiceName)
+                <br>
+            }
+        </dd>
+
+        <dt class="col-sm-2">
+            Записи
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Послуга</th>
+                    <th>Клієнт</th>
+                    <th>Дата</th>
+                </tr>
+                @foreach (var item in Model.Appointments.OrderBy(p => p.Date))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service.ServiceName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Client.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID">Редагувати</a> |
+    <a asp-action="Index">Назад до списку</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@model TimeToWork.Models.Done
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробиці завершеної зустрічі</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Дата
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            Послуга
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.ServiceName)
+        </dd>
+        <dt class="col-sm-2">
+            Клієнт
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            Виконавець
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ServiceProvider.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            Ціна
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Price)₴
+        </dd>
+        <dt class="col-sm-2">
+            Кінець зустрічі
+        </dt>
+        <dd class="col-sm-10">
+            @ViewData["EndOfMeating"]
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Назад до списку</a>
+</div>

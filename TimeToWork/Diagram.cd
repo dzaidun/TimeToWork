@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TimeToWork.Data.TimeToWorkContext">
+    <Position X="10" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gABAAAAAAAAAQAAAACAAAAAAUgAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Data\TimeToWorkContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbContext" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TimeToWork.Models.TimeToWorkViewModels.AssignedServiceData">
+    <Position X="28.5" Y="3" Width="1.75" />
+    <InheritanceLine Type="System.Object" FixedToPoint="true">
+      <Path>
+        <Point X="20.25" Y="1.812" />
+        <Point X="20.25" Y="2.625" />
+        <Point X="29.375" Y="2.625" />
+        <Point X="29.375" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgA=</HashCode>
+      <FileName>Models\TimeToWorkViewModels\AssignedServiceData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="19.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TimeToWork.Models.Appointment">
+    <Position X="13" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAIAAAgAAAAAAAAAAAQAABAQAAAAAAAAQ=</HashCode>
+      <FileName>Models\Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.Client">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgIAAAAAAQAAAQAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.Done">
+    <Position X="17" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAIAAAgAAAAAAAAAAAQAABAQAIAAAAAAQ=</HashCode>
+      <FileName>Models\Done.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.ErrorViewModel">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.PlaceOfWork">
+    <Position X="23.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAEAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\PlaceOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.Service">
+    <Position X="19.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACQAAQggAAAAAAAAAAAAQAAAAAAAAAAAAgBABAA=</HashCode>
+      <FileName>Models\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.ServiceAssignment">
+    <Position X="26.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAIAAAAAAAAAAAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\ServiceAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Models.ServiceProvider">
+    <Position X="21.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAwIAAAAAAAAAAQCAAAEAAAAAAAABAAAg=</HashCode>
+      <FileName>Models\ServiceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Views.Appointments.AppointmentsController">
+    <Position X="12.75" Y="10.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAABBACAAAAAAAAAAAEABWACIAEQAAAAAEA=</HashCode>
+      <FileName>Views\Appointments\AppointmentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.Controller" Collapsed="true">
+    <Position X="18.5" Y="8" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="TimeToWork.Views.Clients.ClientsController">
+    <Position X="16" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Views\Clients\ClientsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Views.Dones.DonesController">
+    <Position X="18.25" Y="10.75" Width="1.5" />
+    <InheritanceLine Type="Microsoft.AspNetCore.Mvc.Controller" ManuallyRouted="true">
+      <Path>
+        <Point X="19.5" Y="8.691" />
+        <Point X="19.5" Y="10.375" />
+        <Point X="19" Y="10.375" />
+        <Point X="19" Y="10.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBECAAAAAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Views\Dones\DonesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Views.PlaceOfWorks.PlaceOfWorksController">
+    <Position X="20.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Views\PlaceOfWorks\PlaceOfWorksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Views.ServiceProviders.ServiceProvidersController">
+    <Position X="22.75" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACAAABBACAAAACAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Views\ServiceProviders\ServiceProvidersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.Views.Services.ServicesController">
+    <Position X="25.5" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Views\Services\ServicesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeToWork.PaginatedList&lt;T&gt;">
+    <Position X="29" Y="11.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>PaginatedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="29.25" Y="9.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TimeToWork.Controllers.HomeController" Collapsed="true">
+    <Position X="10.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.ControllerBase" Collapsed="true">
+    <Position X="18.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Microsoft.EntityFrameworkCore.Infrastructure.IInfrastructure&lt;T&gt;">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.EntityFrameworkCore.Internal.IDbSetCache">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.EntityFrameworkCore.Internal.IDbContextPoolable">
+    <Position X="7" Y="3.25" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.EntityFrameworkCore.Infrastructure.IResettableService">
+    <Position X="7" Y="6.5" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNetCore.Mvc.Filters.IActionFilter">
+    <Position X="21" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata" Collapsed="true">
+    <Position X="22.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNetCore.Mvc.Filters.IAsyncActionFilter">
+    <Position X="24" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

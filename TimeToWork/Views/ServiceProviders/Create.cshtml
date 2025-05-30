@@ -1,0 +1,91 @@
+﻿@model TimeToWork.Models.ServiceProvider
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h1>Новий виконавець</h1>
+        <hr />
+        <form asp-action="Create" class="d-grid gap-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HireDate" class="control-label"></label>
+                <input asp-for="HireDate" class="form-control" />
+                <span asp-validation-for="HireDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Місце роботи</label>
+                <select asp-for="PlaceOfWorkID" class="form-control" asp-items="ViewBag.PlaceOfWorkID">
+                    <option value="">Обрати місце роботи</option>
+                </select>
+                <span asp-validation-for="PlaceOfWorkID" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table>
+                    <tr>
+                        @{
+                            int cnt = 0;
+                            List<TimeToWork.Models.TimeToWorkViewModels.AssignedServiceData> services = ViewBag.Services;
+
+                            foreach (var service in services)
+                            {
+                                if (cnt++ % 1 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+                                @:<td>
+                                <input type="checkbox"
+                                    name="selectedServices"
+                                    value="@service.ServiceID"
+                                    @(Html.Raw(service.Assigned ? "checked=\"checked\"" : "")) />
+                                @cnt @:  @service.ServiceName
+                                @:</td>
+                            }
+                            @:</tr>
+                        }
+                </table>
+            </div>
+            </div>
+
+            <div class="row mt-2">
+				<div class="col-md-6 ">
+					<a class="btn btn-warning w-100" asp-action="Index">
+						<span style="margin-right:10px">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+								<path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+							</svg>
+						</span>
+						Назад до списку
+					</a>
+				</div>
+
+				<div class="col-md-6 ">
+					<div class="form-group">
+						<input type="submit" value="Створити" class="btn btn-success w-100" />
+					</div>
+				</div>
+			</div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

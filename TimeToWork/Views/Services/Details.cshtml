@@ -1,0 +1,60 @@
+﻿@model TimeToWork.Models.Service
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробиці послуги</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServiceName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Виконавці
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var item in Model.ServiceAssignments)
+            {
+                @Html.DisplayFor(w => item.ServiceProvider.FullName)
+                <br>
+            }
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price) ₴
+        </dd>
+
+        <dt class="col-sm-2">
+            Час виконання
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ЕxecutionTimeHours)<span> годин : </span>@Html.DisplayFor(model => model.ЕxecutionTimeMinutes)<span> хвилин</span>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ServiceId">Редагувати</a> |
+    <a asp-action="Index">Назад до списку</a>
+</div>

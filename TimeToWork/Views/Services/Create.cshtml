@@ -1,0 +1,80 @@
+﻿@model TimeToWork.Models.Service
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row  justify-content-center">
+    <div class="col-md-4">
+        <h1>Створити послугу</h1>
+        <hr />
+        <form asp-action="Create"class="d-grid gap-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ServiceName" class="control-label"></label>
+                <input asp-for="ServiceName" class="form-control" />
+                <span asp-validation-for="ServiceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                @*<input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>*@
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input asp-for="Price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="row" style="margin-top:10px">
+                <label>Час виконання</label>
+
+                <div class="input-group">
+                    <input asp-for="ЕxecutionTimeHours" type="text" class="form-control">
+                    <span class="input-group-text">год.</span>                    
+                    <input asp-for="ЕxecutionTimeMinutes" type="text" class="form-control">
+                    <span class="input-group-text">хв.</span>                    
+                </div>
+                <span asp-validation-for="ЕxecutionTimeHours" class="text-danger"></span>
+                <span asp-validation-for="ЕxecutionTimeMinutes" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="row mt-2">
+                <div class="col-md-6 ">
+                    <a class="btn btn-warning w-100" asp-action="Index">
+                        <span style="margin-right:10px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                            </svg>
+                        </span>
+                        Назад до списку
+                    </a>
+                </div>
+
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <input type="submit" value="Створити" class="btn btn-success w-100" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

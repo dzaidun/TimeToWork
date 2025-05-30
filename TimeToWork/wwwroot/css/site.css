@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.firstTH {
+    border-radius:10px 0 0 0;
+}
+
+.lastTH {
+    border-radius: 0 10px 0 0;
+}
+
+.headText {
+    color: white;
+    font-size: 1.0625rem;
+    font-weight: 500;
+}
+
+.TableLink {
+    text-decoration: none;
+    color: white;
+    font-size: 1.0625rem;
+    font-weight: 500;
+}
+
+.LinkGreenHover:hover {
+    color: forestgreen;
+}
+
+.LinkYellowHover:hover {
+    color: yellow;
+}
+
+.LinkBlackHover:hover {
+    color: black;
+}
+
+.tableHeadAppointment {
+    background-color: #362F4B !important;
+}
+
+.tableHeadClient {
+    background-color: #6C7AE0 !important;
+}
+
+.tableHeadService {
+    background-color: #F73936 !important;
+}
+
+.tableHeadServiceProvider {
+    background-color: #9F40AE !important;
+}
+
+.tableHeadDone {
+    background-color: #FD6230 !important;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
