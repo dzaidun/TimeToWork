@@ -1,0 +1,141 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\My_Projects\\TimeToWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\timetowork.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\timetowork.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\migrations\\20250530084154_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\migrations\\20250530084154_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\data\\timetoworkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\data\\timetoworkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|e:\\my_projects\\timetowork\\timetowork\\views\\appointments\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DEC8736-FAF0-43C9-81CA-A6297C0D043E}|TimeToWork\\TimeToWork.csproj|solutionrelative:timetowork\\views\\appointments\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\.gitignore",
+              "RelativeDocumentMoniker": "TimeToWork\\.gitignore",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\.gitignore",
+              "RelativeToolTip": "TimeToWork\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-30T08:46:04.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20250530084154_test.cs",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Migrations\\20250530084154_test.cs",
+              "RelativeDocumentMoniker": "TimeToWork\\Migrations\\20250530084154_test.cs",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Migrations\\20250530084154_test.cs",
+              "RelativeToolTip": "TimeToWork\\Migrations\\20250530084154_test.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T08:41:54.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\appsettings.json",
+              "RelativeDocumentMoniker": "TimeToWork\\appsettings.json",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\appsettings.json",
+              "RelativeToolTip": "TimeToWork\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-30T08:33:52.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TimeToWork",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\TimeToWork.csproj",
+              "RelativeDocumentMoniker": "TimeToWork\\TimeToWork.csproj",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\TimeToWork.csproj",
+              "RelativeToolTip": "TimeToWork\\TimeToWork.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-30T08:23:42.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TimeToWorkContext.cs",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Data\\TimeToWorkContext.cs",
+              "RelativeDocumentMoniker": "TimeToWork\\Data\\TimeToWorkContext.cs",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Data\\TimeToWorkContext.cs",
+              "RelativeToolTip": "TimeToWork\\Data\\TimeToWorkContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T14:38:58.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Program.cs",
+              "RelativeDocumentMoniker": "TimeToWork\\Program.cs",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Program.cs",
+              "RelativeToolTip": "TimeToWork\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T17:32:06.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Views\\Appointments\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "TimeToWork\\Views\\Appointments\\AppointmentsController.cs",
+              "ToolTip": "E:\\My_Projects\\TimeToWork\\TimeToWork\\Views\\Appointments\\AppointmentsController.cs",
+              "RelativeToolTip": "TimeToWork\\Views\\Appointments\\AppointmentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T11:41:44.481Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

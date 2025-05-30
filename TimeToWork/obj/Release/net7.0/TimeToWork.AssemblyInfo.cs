@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("TimeToWork")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7376648c972a44828db5476e69da612bc15375a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7f73b4cff54c66413e895e35ae0229e5f6b6ad7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TimeToWork")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TimeToWork")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
