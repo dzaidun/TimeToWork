@@ -98,52 +98,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 
+<script src="~/js/serviceproviders-quick-add.js"></script>
 <script type="text/javascript">
-	// Quick Add Workplace functionality
 	$(document).ready(function() {
-		$('#quickAddPlaceOfWorkForm').on('submit', function(e) {
-			e.preventDefault();
-			
-			var formData = {
-				Location: $('#quickPlaceOfWork_Location').val()
-			};
-			
-			$.ajax({
-				url: '@Url.Action("QuickCreate", "PlaceOfWorks")',
-				type: 'POST',
-				contentType: 'application/json',
-				data: JSON.stringify(formData),
-				success: function(response) {
-					if (response.success) {
-						// Add new option to select
-						var newOption = new Option(response.text, response.id, true, true);
-						$('#PlaceOfWorkID').append(newOption).trigger('change');
-						
-						// Close modal
-						$('#quickAddPlaceOfWorkModal').modal('hide');
-						
-						// Clear form
-						$('#quickAddPlaceOfWorkForm')[0].reset();
-						$('#quickAddPlaceOfWorkErrors').addClass('d-none');
-						
-						// Show success message
-						showSuccessToast('Workplace "' + response.text + '" created successfully!');
-					} else {
-						$('#quickAddPlaceOfWorkErrors').removeClass('d-none').text(response.message);
-					}
-				},
-				error: function(xhr) {
-					$('#quickAddPlaceOfWorkErrors').removeClass('d-none').text('Error adding workplace. Please try again.');
-				}
-			});
-		});
-		
-		// Clear errors when modal is closed
-		$('#quickAddPlaceOfWorkModal').on('hidden.bs.modal', function () {
-			$('#quickAddPlaceOfWorkForm')[0].reset();
-			$('#quickAddPlaceOfWorkErrors').addClass('d-none').text('');
-		});
+		ServiceProvidersQuickAdd.init();
 	});
 </script>
+}
