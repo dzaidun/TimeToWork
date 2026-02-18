@@ -30,9 +30,7 @@
 
             <div class="form-group">
                 <label>Workplace</label>
-                <select asp-for="PlaceOfWorkID" class="form-control" asp-items="ViewBag.PlaceOfWorkID">
-                    <option value="">Select Workplace</option>
-                </select>
+                <select asp-for="PlaceOfWorkID" class="form-control searchable-select" asp-items="ViewBag.PlaceOfWorkID" data-placeholder="Select Workplace"></select>
                 <span asp-validation-for="PlaceOfWorkID" class="text-danger" />
             </div>
 

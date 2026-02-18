@@ -15,22 +15,20 @@
 			<div class="form-group">
 				<label class="control-label">Service</label>
 
-				<select id="lstServiceId" asp-for="ServiceId" class="form-control" asp-items="ViewBag.ServiceId" onchange="FillServiceProvider(this, 'lstServiceProvider');"></select>
+				<select id="lstServiceId" asp-for="ServiceId" class="form-control searchable-select" asp-items="ViewBag.ServiceId" onchange="FillServiceProvider(this, 'lstServiceProvider');" data-placeholder="Select Service"></select>
 				<span asp-validation-for="ServiceId" class="text-danger" />
 			</div>
 
 			<div class="form-group">
 				<label class="control-label">Executor</label>
 
-				<select id="lstServiceProvider" asp-for="ServiceProviderID" class="form-control" asp-items="ViewBag.ServiceProviderID"></select>
+				<select id="lstServiceProvider" asp-for="ServiceProviderID" class="form-control searchable-select" asp-items="ViewBag.ServiceProviderID" data-placeholder="Select Executor"></select>
 				<span asp-validation-for="ServiceProviderID" class="text-danger" />
 			</div>
 
 			<div class="form-group">
 				<label class="control-label">Client</label>
-				<select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId">
-					<option value="">Select Client</option>
-				</select>
+				<select asp-for="ClientId" class="form-control searchable-select" asp-items="ViewBag.ClientId" data-placeholder="Select Client"></select>
 				<span asp-validation-for="ClientId" class="text-danger" />
 			</div>
 
@@ -78,12 +76,13 @@
 
 	function FillServiceProvider(lstServiceCtrl, lstServiceProviderId){
 		var lstServiceProvider = $("#" + lstServiceProviderId);
+		
+		// Destroy Select2 before clearing
+		if (lstServiceProvider.hasClass("select2-hidden-accessible")) {
+			lstServiceProvider.select2('destroy');
+		}
+		
 		lstServiceProvider.empty();
-
-		//lstServiceProvider.append($('<option/>',{
-		//	value: null,
-		//	text: "Select Executor"
-		//}));
 
 		var selectedService = lstServiceCtrl.options[lstServiceCtrl.selectedIndex].value;
 
@@ -96,9 +95,25 @@
 							text: serviceProvider.text
 						}));
 					});
-				};
+				}
+				
+				// Re-initialize Select2 after populating
+				lstServiceProvider.select2({
+					theme: 'bootstrap-5',
+					width: '100%',
+					placeholder: 'Select Executor',
+					allowClear: true
+				});
 			});
-		};
+		} else {
+			// Re-initialize Select2 even if empty
+			lstServiceProvider.select2({
+				theme: 'bootstrap-5',
+				width: '100%',
+				placeholder: 'Select Executor',
+				allowClear: true
+			});
+		}
 	}
 
 </script>
