@@ -28,7 +28,15 @@
 
             <div class="form-group">
                 <label>Workplace</label>
-                <select asp-for="PlaceOfWorkID" class="form-control searchable-select" asp-items="ViewBag.PlaceOfWorkID" data-placeholder="Select Workplace"></select>
+				<div class="input-group">
+					<select asp-for="PlaceOfWorkID" class="form-control searchable-select" asp-items="ViewBag.PlaceOfWorkID" data-placeholder="Select Workplace"></select>
+					<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#quickAddPlaceOfWorkModal" title="Add new workplace">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+						</svg>
+					</button>
+				</div>
                 <span asp-validation-for="PlaceOfWorkID" class="text-danger" />
             </div>
 
@@ -83,7 +91,58 @@
     </div>
 </div>
 
+<!-- Include Quick Add Workplace Modal -->
+@await Html.PartialAsync("_QuickAddPlaceOfWork")
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script type="text/javascript">
+	// Quick Add Workplace functionality
+	$(document).ready(function() {
+		$('#quickAddPlaceOfWorkForm').on('submit', function(e) {
+			e.preventDefault();
+			
+			var formData = {
+				Location: $('#quickPlaceOfWork_Location').val()
+			};
+			
+			$.ajax({
+				url: '@Url.Action("QuickCreate", "PlaceOfWorks")',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(formData),
+				success: function(response) {
+					if (response.success) {
+						// Add new option to select
+						var newOption = new Option(response.text, response.id, true, true);
+						$('#PlaceOfWorkID').append(newOption).trigger('change');
+						
+						// Close modal
+						$('#quickAddPlaceOfWorkModal').modal('hide');
+						
+						// Clear form
+						$('#quickAddPlaceOfWorkForm')[0].reset();
+						$('#quickAddPlaceOfWorkErrors').addClass('d-none');
+						
+						// Show success message
+						showSuccessToast('Workplace "' + response.text + '" created successfully!');
+					} else {
+						$('#quickAddPlaceOfWorkErrors').removeClass('d-none').text(response.message);
+					}
+				},
+				error: function(xhr) {
+					$('#quickAddPlaceOfWorkErrors').removeClass('d-none').text('Error adding workplace. Please try again.');
+				}
+			});
+		});
+		
+		// Clear errors when modal is closed
+		$('#quickAddPlaceOfWorkModal').on('hidden.bs.modal', function () {
+			$('#quickAddPlaceOfWorkForm')[0].reset();
+			$('#quickAddPlaceOfWorkErrors').addClass('d-none').text('');
+		});
+	});
+</script>

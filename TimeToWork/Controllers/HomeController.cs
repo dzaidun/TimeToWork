@@ -23,6 +23,11 @@ namespace TimeToWork.Controllers
 			return View();
 		}
 
+		public IActionResult TestAjax()
+		{
+			return View();
+		}
+
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

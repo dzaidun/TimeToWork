@@ -135,7 +135,18 @@ namespace TimeToWork.Views.Appointments
 			var clientsQuery = from d in _context.Clients
 								orderby d.LastName
 								select d;
-			ViewBag.ClientId = new SelectList(clientsQuery.AsNoTracking(), "ID", "FullName", selectedClient);
+			
+			var clientsList = clientsQuery.AsNoTracking().ToList();
+			var selectListItems = clientsList.Select(c => new SelectListItem
+			{
+				Value = c.ID.ToString(),
+				Text = c.FullName
+			}).ToList();
+			
+			// Add empty option at the beginning
+			selectListItems.Insert(0, new SelectListItem { Value = "", Text = "Select Client" });
+			
+			ViewBag.ClientId = new SelectList(selectListItems, "Value", "Text", selectedClient);
 			ViewBag.SelectedClient = selectedClient;
 		}
 
@@ -154,7 +165,7 @@ namespace TimeToWork.Views.Appointments
             var defItem = new SelectListItem()
             {
                 Value = "",
-                Text = "Обрати послугу"
+                Text = "Select Service"
             };
 
             lstServices.Insert(0, defItem);
@@ -175,7 +186,7 @@ namespace TimeToWork.Views.Appointments
             var defItem = new SelectListItem()
             {
                 Value = "",
-                Text = "Обрати виконавця"
+                Text = "Select Executor"
             };
             lstServiceProvider.Insert(0, defItem);
             return lstServiceProvider;
@@ -231,9 +242,9 @@ namespace TimeToWork.Views.Appointments
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Clients, "ID", "FullName", appointment.ClientId);
-            ViewData["ServiceId"] = GetService();
-            ViewData["ServiceProviderID"] = GetServiceProvider(appointment.ServiceId);
+            PopulateClientDropDownList(appointment.ClientId);
+            ViewBag.ServiceId = GetService();
+            ViewBag.ServiceProviderID = GetServiceProvider(appointment.ServiceId);
 			return View(appointment);
         }
 

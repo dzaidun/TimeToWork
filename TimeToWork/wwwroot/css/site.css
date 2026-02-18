@@ -79,3 +79,18 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Quick add button styles - prevent wrapping */
+.input-group .select2-container {
+    flex: 1 1 auto;
+    width: 1% !important;
+}
+
+.input-group .btn-outline-success {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.input-group {
+    flex-wrap: nowrap !important;
+}

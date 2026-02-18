@@ -48,6 +48,28 @@ namespace TimeToWork.Views.PlaceOfWorks
             return View(placeOfWork);
         }
 
+        // POST: PlaceOfWorks/QuickCreate - AJAX endpoint for quick add
+        [HttpPost]
+        public async Task<IActionResult> QuickCreate([FromBody] PlaceOfWork placeOfWork)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Add(placeOfWork);
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true, id = placeOfWork.PlaceOfWorkID, text = placeOfWork.Location });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { success = false, message = ex.Message });
+                }
+            }
+
+            var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+            return Json(new { success = false, message = string.Join(", ", errors) });
+        }
+
         // GET: PlaceOfWorks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

@@ -102,6 +102,28 @@ namespace TimeToWork.Views.Clients
             return View(client);
         }
 
+        // POST: Clients/QuickCreate - AJAX endpoint for quick add
+        [HttpPost]
+        public async Task<IActionResult> QuickCreate([FromBody] Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Add(client);
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true, id = client.ID, text = client.FullName });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { success = false, message = ex.Message });
+                }
+            }
+            
+            var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+            return Json(new { success = false, message = string.Join(", ", errors) });
+        }
+
         // GET: Clients/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

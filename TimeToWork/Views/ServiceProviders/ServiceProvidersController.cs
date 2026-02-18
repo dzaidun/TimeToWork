@@ -95,7 +95,24 @@ namespace TimeToWork.Views.ServiceProviders
             var locationQuery = from d in _context.PlaceOfWork
                                    orderby d.Location
                                    select d;
-            ViewBag.PlaceOfWorkID = new SelectList(locationQuery.AsNoTracking(), "PlaceOfWorkID", "Location", selectedLocation);
+            
+            var locations = locationQuery.AsNoTracking().ToList();
+            var selectListItems = locations.Select(l => new SelectListItem
+            {
+                Value = l.PlaceOfWorkID.ToString(),
+                Text = l.Location,
+                Selected = selectedLocation != null && l.PlaceOfWorkID.ToString() == selectedLocation.ToString()
+            }).ToList();
+            
+            // Add empty option at the beginning
+            selectListItems.Insert(0, new SelectListItem 
+            { 
+                Value = "", 
+                Text = "Select Workplace",
+                Selected = selectedLocation == null
+            });
+            
+            ViewBag.PlaceOfWorkID = selectListItems;
         }
 
         // GET: ServiceProviders/Create
@@ -132,6 +149,73 @@ namespace TimeToWork.Views.ServiceProviders
             }
             PopulateAssignedServiceData(serviceProvider);
             return View(serviceProvider);
+        }
+
+        // POST: ServiceProviders/QuickCreate - AJAX endpoint for quick add
+        [HttpPost]
+        public async Task<IActionResult> QuickCreate([FromBody] ServiceProviderQuickCreateModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var serviceProvider = new ServiceProvider
+                    {
+                        LastName = model.LastName,
+                        FirstName = model.FirstName,
+                        HireDate = model.HireDate,
+                        PlaceOfWorkID = model.PlaceOfWorkID,
+                        ServiceAssignments = new List<ServiceAssignment>()
+                    };
+
+                    // Add selected services
+                    if (model.SelectedServices != null && model.SelectedServices.Length > 0)
+                    {
+                        foreach (var serviceId in model.SelectedServices)
+                        {
+                            serviceProvider.ServiceAssignments.Add(new ServiceAssignment 
+                            { 
+                                ServiceID = serviceId 
+                            });
+                        }
+                    }
+
+                    _context.Add(serviceProvider);
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true, id = serviceProvider.ID, text = serviceProvider.FullName });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { success = false, message = ex.Message });
+                }
+            }
+            
+            var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+            return Json(new { success = false, message = string.Join(", ", errors) });
+        }
+
+        // GET /ServiceProviders/GetPlaceOfWorks - AJAX endpoint to get workplaces for dropdown
+        [HttpGet]
+        public async Task<IActionResult> GetPlaceOfWorks()
+        {
+            var placeOfWorks = await _context.PlaceOfWork
+                .OrderBy(p => p.Location)
+                .Select(p => new { value = p.PlaceOfWorkID, text = p.Location })
+                .ToListAsync();
+            
+            return Json(placeOfWorks);
+        }
+
+        // GET /ServiceProviders/GetServices - AJAX endpoint to get services for checkboxes
+        [HttpGet]
+        public async Task<IActionResult> GetServices()
+        {
+            var services = await _context.Services
+                .OrderBy(s => s.ServiceName)
+                .Select(s => new { id = s.ServiceId, name = s.ServiceName })
+                .ToListAsync();
+            
+            return Json(services);
         }
 
         // GET: ServiceProviders/Edit/5
