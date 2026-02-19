@@ -5,25 +5,25 @@
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 
-Навчальний проєкт системи управління записами на послуги, розроблений з акцентом на правильну архітектуру бази даних, дотримання нормалізацій та роботу з ORM Entity Framework.
+An educational service booking management system project, developed with emphasis on proper database architecture, adherence to normalization principles, and work with Entity Framework ORM.
 
-## Про проєкт
+## About the Project
 
-Це старий університетський проєкт, виконаний 3-4 роки тому (2021-2022) в університеті в рамках дисципліни **"Бази даних"**. Основна мета проєкту — продемонструвати знання та навички у:
+This is an old university project, completed 3-4 years ago (2021-2022) at university as part of the **"Databases"** discipline. The main goal of the project is to demonstrate knowledge and skills in:
 
-- **Проєктуванні архітектури баз даних** — створення логічної та фізичної моделі даних
-- **Нормалізації баз даних** — приведення структури до третьої нормальної форми (3NF)
-- **Роботі з Entity Framework Core** — використання ORM для взаємодії з базою даних
-- **Реалізації зв'язків** — One-to-Many, Many-to-Many через проміжні таблиці
-- **CRUD операціях** — створення повнофункціонального веб-додатку з базовими операціями
+- **Database Architecture Design** — creating logical and physical data models
+- **Database Normalization** — bringing the structure to third normal form (3NF)
+- **Working with Entity Framework Core** — using ORM for database interaction
+- **Implementing Relationships** — One-to-Many, Many-to-Many through intermediate tables
+- **CRUD Operations** — creating a fully functional web application with basic operations
 
-> Проєкт розроблено на .NET 7, який вже не підтримується, бо був зроблений давно.
+> The project was developed on .NET 7, which is no longer supported, because it was made a long time ago.
 
-## Структура бази даних
+## Database Structure
 
-### Основні сутності
+### Main Entities
 
-#### 1. **Client** (Клієнти)
+#### 1. **Client** (Clients)
 ```csharp
 - ID (Primary Key)
 - FirstName
@@ -32,7 +32,7 @@
 - Appointments (Navigation Property)
 ```
 
-#### 2. **Service** (Послуги)
+#### 2. **Service** (Services)
 ```csharp
 - ServiceId (Primary Key)
 - ServiceName
@@ -45,7 +45,7 @@
 - ServiceAssignments (Navigation Property)
 ```
 
-#### 3. **ServiceProvider** (Надавачі послуг / Працівники)
+#### 3. **ServiceProvider** (Service Providers / Employees)
 ```csharp
 - ID (Primary Key)
 - FirstName
@@ -57,31 +57,31 @@
 - Appointments (Navigation Property)
 ```
 
-#### 4. **PlaceOfWork** (Місця роботи)
+#### 4. **PlaceOfWork** (Workplaces)
 ```csharp
 - PlaceOfWorkID (Primary Key)
 - Location
 - ServiceProviders (Navigation Property)
 ```
 
-#### 5. **Appointment** (Записи на послуги)
+#### 5. **Appointment** (Service Appointments)
 ```csharp
 - AppointmentId (Primary Key)
 - ClientId (Foreign Key)
 - ServiceId (Foreign Key)
 - ServiceProviderId (Foreign Key)
 - Date
-- Navigation Properties для зв'язків
+- Navigation Properties for relationships
 ```
 
-#### 6. **ServiceAssignment** (Призначення послуг працівникам)
+#### 6. **ServiceAssignment** (Service Assignment to Employees)
 ```csharp
 - ServiceProviderId (Composite Key)
 - ServiceId (Composite Key)
 - Navigation Properties
 ```
 
-#### 7. **Done** (Історія виконаних послуг)
+#### 7. **Done** (Completed Services History)
 ```csharp
 - DoneId (Primary Key)
 - ClientId (Foreign Key)
@@ -90,69 +90,69 @@
 - Date
 ```
 
-### Зв'язки між таблицями
+### Relationships Between Tables
 
 ```
 PlaceOfWork (1) ──→ (N) ServiceProvider
 Client (1) ──→ (N) Appointment
 Service (1) ──→ (N) Appointment
 ServiceProvider (1) ──→ (N) Appointment
-ServiceProvider (N) ←──→ (N) Service (через ServiceAssignment)
+ServiceProvider (N) ←──→ (N) Service (through ServiceAssignment)
 ```
 
-### Нормалізація
+### Normalization
 
-База даних приведена до **третьої нормальної форми (3NF)**:
-- ✅ **1NF:** Всі атрибути атомарні, немає повторюваних груп
-- ✅ **2NF:** Відсутня часткова залежність від ключа
-- ✅ **3NF:** Відсутня транзитивна залежність
+The database is normalized to **third normal form (3NF)**:
+- ✅ **1NF:** All attributes are atomic, no repeating groups
+- ✅ **2NF:** No partial dependency on the key
+- ✅ **3NF:** No transitive dependency
 
-Проміжна таблиця **ServiceAssignment** реалізує зв'язок Many-to-Many між працівниками та послугами, які вони можуть надавати.
+The intermediate table **ServiceAssignment** implements a Many-to-Many relationship between employees and the services they can provide.
 
-## Технології
+## Technologies
 
-- **ASP.NET Core MVC 7.0** — Фреймворк для створення веб-додатків
-- **Entity Framework Core 7.0.4** — ORM для роботи з базою даних
-- **SQL Server** — Система управління базами даних
-- **Razor Pages** — Шаблонізатор для представлень
-- **Bootstrap** — Стилізація інтерфейсу
-- **Code First Migrations** — Підхід до створення схеми БД
+- **ASP.NET Core MVC 7.0** — Framework for creating web applications
+- **Entity Framework Core 7.0.4** — ORM for database work
+- **SQL Server** — Database management system
+- **Razor Pages** — Template engine for views
+- **Bootstrap** — UI styling
+- **Code First Migrations** — Approach to creating database schema
 
-## Основний функціонал
+## Main Functionality
 
-- 📋 **Управління клієнтами** — додавання, редагування, перегляд та видалення клієнтів
-- 💼 **Управління послугами** — каталог послуг з описами, цінами та часом виконання
-- 👥 **Управління працівниками** — облік надавачів послуг та їх місць роботи
-- 📅 **Система записів** — створення та відстеження записів клієнтів на послуги
-- 🏢 **Місця роботи** — управління локаціями, де надаються послуги
-- ✅ **Історія виконання** — облік завершених записів
-- 🔗 **Призначення послуг** — зв'язок між працівниками та послугами, які вони надають
+- 📋 **Client Management** — adding, editing, viewing and deleting clients
+- 💼 **Service Management** — service catalog with descriptions, prices and execution time
+- 👥 **Employee Management** — accounting of service providers and their workplaces
+- 📅 **Appointment System** — creating and tracking client appointments for services
+- 🏢 **Workplaces** — managing locations where services are provided
+- ✅ **Completion History** — accounting of completed appointments
+- 🔗 **Service Assignment** — connection between employees and services they provide
 
-## Локальний запуск
+## Local Setup
 
-### Передумови
-- .NET 7 SDK (або новіший)
-- SQL Server (LocalDB або повна версія)
-- Visual Studio 2022 або Rider (опціонально)
+### Prerequisites
+- .NET 7 SDK (or newer)
+- SQL Server (LocalDB or full version)
+- Visual Studio 2022 or Rider (optional)
 
-### Кроки для запуску
+### Steps to Run
 
-1. **Клонуйте репозиторій**
+1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/TimeToWork.git
 cd TimeToWork
 ```
 
-2. **Відновіть NuGet пакети**
-Пакети вже вказані в `TimeToWork.csproj` та встановляться автоматично при першому запуску, але можете явно восстановити їх:
+2. **Restore NuGet packages**
+Packages are already specified in `TimeToWork.csproj` and will be installed automatically on first run, but you can explicitly restore them:
 
 ```bash
 cd TimeToWork
 dotnet restore
 ```
 
-3. **Налаштуйте Connection String** (опціонально)
-Якщо потрібно змінити підключення до БД, відредагуйте `TimeToWork/appsettings.json`:
+3. **Configure Connection String** (optional)
+If you need to change the database connection, edit `TimeToWork/appsettings.json`:
 ```json
 {
   "ConnectionStrings": {
@@ -161,106 +161,106 @@ dotnet restore
 }
 ```
 
-4. **Застосуйте міграції**
+4. **Apply migrations**
 
-#### Вариант A: Через CLI (командний рядок / терміналу)
+#### Option A: Through CLI (command line / terminal)
 ```bash
 cd TimeToWork
 dotnet ef database update
 ```
 
-#### Вариант B: Через Package Manager Console (Visual Studio)
-1. Відкрийте меню **Tools → NuGet Package Manager → Package Manager Console**
-2. Переконайтеся, що в dropdown обрано `TimeToWork` як проєкт за замовчуванням
-3. Введіть команду:
+#### Option B: Through Package Manager Console (Visual Studio)
+1. Open menu **Tools → NuGet Package Manager → Package Manager Console**
+2. Make sure `TimeToWork` is selected as the default project in the dropdown
+3. Enter the command:
 ```powershell
 Update-Database
 ```
 
-> **Примітка:** EF Core Tools вже включені в проєкт як залежність (`Microsoft.EntityFrameworkCore.Tools`), тому додаткове встановлення не потрібне.
+> **Note:** EF Core Tools are already included in the project as a dependency (`Microsoft.EntityFrameworkCore.Tools`), so no additional installation is required.
 
-5. **Запустіть додаток**
+5. **Run the application**
 ```bash
 dotnet run
 ```
 
-## Структура проєкту
+## Project Structure
 
 ```
 TimeToWork/
-├── Controllers/         # MVC контролери
-├── Models/              # Моделі даних (сутності)
-├── Views/               # Razor представлення
-├── Data/                # DbContext та конфігурація EF Core
-├── Migrations/          # Міграції Entity Framework
-├── wwwroot/             # Статичні файли (CSS, JS, зображення)
-└── Program.cs           # Точка входу додатку
+├── Controllers/         # MVC controllers
+├── Models/              # Data models (entities)
+├── Views/               # Razor views
+├── Data/                # DbContext and EF Core configuration
+├── Migrations/          # Entity Framework migrations
+├── wwwroot/             # Static files (CSS, JS, images)
+└── Program.cs           # Application entry point
 ```
 
-## Навчальні цілі, що були досягнуті
+## Learning Objectives Achieved
 
-✅ Проєктування нормалізованої бази даних  
-✅ Реалізація складних зв'язків між таблицями  
-✅ Робота з Entity Framework Core (Code First підхід)  
-✅ Використання міграцій для версіонування схеми БД  
-✅ CRUD операції з використанням ORM  
-✅ Scaffolding контролерів та представлень  
-✅ Робота з Navigation Properties та Lazy/Eager Loading  
-✅ Валідація даних через Data Annotations  
-✅ Створення складеного первинного ключа (Composite Key)  
+✅ Designing a normalized database  
+✅ Implementing complex relationships between tables  
+✅ Working with Entity Framework Core (Code First approach)  
+✅ Using migrations for database schema versioning  
+✅ CRUD operations using ORM  
+✅ Scaffolding controllers and views  
+✅ Working with Navigation Properties and Lazy/Eager Loading  
+✅ Data validation through Data Annotations  
+✅ Creating composite primary key (Composite Key)  
 
-## Скріншоти
+## Screenshots
 
-### Управління записами
-![Список записів](screenshots/appointment_screen.png)
-*Перегляд всіх записів на послуги*
+### Appointment Management
+![Appointment List](screenshots/appointment_screen.png)
+*Viewing all service appointments*
 
-![Створення запису](screenshots/appointment_create_screen.png)
-*Створення нового запису на послугу*
+![Create Appointment](screenshots/appointment_create_screen.png)
+*Creating a new service appointment*
 
-![Розширене створення запису](screenshots/appointment_create2_screen.png)
-*Форма створення запису з вибором клієнта та послуги*
+![Advanced Appointment Creation](screenshots/appointment_create2_screen.png)
+*Appointment creation form with client and service selection*
 
-![Редагування запису](screenshots/appointment_edit_screen.png)
-*Редагування існуючого запису*
+![Edit Appointment](screenshots/appointment_edit_screen.png)
+*Editing an existing appointment*
 
-![Видалення запису](screenshots/appointment_delete_screen.png)
-*Підтвердження видалення запису*
+![Delete Appointment](screenshots/appointment_delete_screen.png)
+*Appointment deletion confirmation*
 
-### Управління клієнтами
-![Список клієнтів](screenshots/clients_screen.png)
-*Перегляд всіх клієнтів системи*
+### Client Management
+![Client List](screenshots/clients_screen.png)
+*Viewing all system clients*
 
-![Деталі клієнта](screenshots/clients_details_screen.png)
-*Детальна інформація про клієнта та його записи*
+![Client Details](screenshots/clients_details_screen.png)
+*Detailed information about client and their appointments*
 
-### Управління послугами
-![Список послуг](screenshots/service_screen.png)
-*Каталог всіх доступних послуг*
+### Service Management
+![Service List](screenshots/service_screen.png)
+*Catalog of all available services*
 
-![Створення послуги](screenshots/service_create_screen.png)
-*Додавання нової послуги до системи*
+![Create Service](screenshots/service_create_screen.png)
+*Adding a new service to the system*
 
-![Редагування послуги](screenshots/service_edit_screen.png)
-*Редагування інформації про послугу*
+![Edit Service](screenshots/service_edit_screen.png)
+*Editing service information*
 
-![Деталі послуги](screenshots/service_details_screen.png)
-*Детальний перегляд послуги*
+![Service Details](screenshots/service_details_screen.png)
+*Detailed service view*
 
-### Управління працівниками
-![Список виконавців](screenshots/executor_screen.png)
-*Перегляд всіх надавачів послуг*
+### Employee Management
+![Provider List](screenshots/executor_screen.png)
+*Viewing all service providers*
 
-![Створення виконавця](screenshots/executor_create_screen.png)
-*Додавання нового працівника*
+![Create Provider](screenshots/executor_create_screen.png)
+*Adding a new employee*
 
-![Редагування виконавця](screenshots/executor_edit_screen.png)
-*Редагування інформації про працівника*
+![Edit Provider](screenshots/executor_edit_screen.png)
+*Editing employee information*
 
-![Деталі виконавця](screenshots/executor_details_screen.png)
-*Детальна інформація про працівника та його послуги*
+![Provider Details](screenshots/executor_details_screen.png)
+*Detailed information about employee and their services*
 
-## Автор
+## Author
 
 **Denys Zaidun**  
 - GitHub: [dzaidun](https://github.com/dzaidun)
